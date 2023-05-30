@@ -1,0 +1,72 @@
+spring:
+  profiles:
+    active: dev
+
+---
+#spring:
+#  profiles: dev
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-Class-Name: com.mysql.jdbc.Driver
+    password: Admin@123
+    url: jdbc:mysql://localhost:3307/dmapp
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+sql: DataBase configuration
+the: below comand updates the table automatically when there is an change in entity
+  class
+welcome:
+  msg: Hi, you are hosting in Dev server!!
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "beans"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-Class-Name: com.mysql.jdbc.Driver
+    password: Admin@123
+    url: jdbc:mysql://localhost:3307/dmapp_qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+sql: DataBase configuration
+the: below comand updates the table automatically when there is an change in entity
+  class
+welcome:
+  msg: Hi, you are hosting in qa server!!
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-Class-Name: com.mysql.jdbc.Driver
+    password: Admin@123
+    url: jdbc:mysql://localhost:3307/dmapp_prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+sql: DataBase configuration
+the: below comand updates the table automatically when there is an change in entity
+  class
+welcome:
+  msg: Hi, you are hosting in prod server!!
